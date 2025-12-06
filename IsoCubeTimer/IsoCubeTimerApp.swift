@@ -6,6 +6,9 @@
 //
 
 import SwiftUI
+import Foundation
+import GameplayKit
+
 
 @main
 struct IsoCubeTimerApp: App {
@@ -15,3 +18,4 @@ struct IsoCubeTimerApp: App {
         }
     }
 }
+
