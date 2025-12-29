@@ -4,17 +4,79 @@
 import SwiftUI
 import Foundation
 import GameplayKit
+import Foundation
 
-
-struct Solve{
+struct Solve : Codable{
     let ID : String
-    let scramble : String
+    let scrambleID : String
     let time : Double
-    init(scramble: String, time: Double) {
+    let dateSolved : Date
+    init(scramble: String, time: Double,dateSolved : Date) {
         self.ID = UUID().uuidString
-        self.scramble = scramble
+        self.scrambleID = scramble
         self.time = time
+        self.dateSolved = dateSolved
     }
+    
+}
+
+
+import Foundation
+
+struct SolveDataSheet {
+    let AO5: Double
+    let AO12: Double
+
+    
+    let Best: Double
+    
+
+    
+    init(AO5: Double, AO12: Double, Best: Double){
+        self.AO12 = AO12
+        self.Best = Best
+        self.AO5 = AO5
+    }
+}
+
+
+func createDataSheet(solves : [Solve]) -> SolveDataSheet{
+    var avOf5 = 0.0
+    var avOf12 = 0.0
+    var best = 999999.0
+    let newestFirst = solves.sorted { $0.dateSolved > $1.dateSolved }
+
+    for (i, solve) in newestFirst.enumerated() {
+        
+        
+        if i < 5 {
+            avOf5 += solve.time
+            print(solve.time)
+        }
+        
+
+        if i < 12 {
+            avOf12 += solve.time
+        }
+        
+
+        if solve.time < best {
+            best = solve.time
+        }
+    }
+    avOf5 /= 5.0
+    avOf12 /= 12.0
+    
+    if solves.count < 12{
+        avOf12 = 0.0
+    }
+    if solves.count < 5{
+        avOf5 = 0.0
+    }
+    if solves.count <= 0{
+        best = 0.0
+    }
+    return SolveDataSheet(AO5: avOf5, AO12: avOf12, Best: best)
     
 }
 

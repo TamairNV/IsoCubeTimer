@@ -29,9 +29,22 @@
 		3071F5CB2EE499E4008D8EE0 /* IsoCubeTimerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IsoCubeTimerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		3071F5F12EE4DFC9008D8EE0 /* Exceptions for "IsoCubeTimer" folder in "IsoCubeTimer" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 3071F5B32EE499E3008D8EE0 /* IsoCubeTimer */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		3071F5B62EE499E3008D8EE0 /* IsoCubeTimer */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				3071F5F12EE4DFC9008D8EE0 /* Exceptions for "IsoCubeTimer" folder in "IsoCubeTimer" target */,
+			);
 			path = IsoCubeTimer;
 			sourceTree = "<group>";
 		};
@@ -400,6 +413,8 @@
 				DEVELOPMENT_TEAM = MP9RMXUZ7M;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = IsoCubeTimer/Info.plist;
+				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -428,6 +443,8 @@
 				DEVELOPMENT_TEAM = MP9RMXUZ7M;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = IsoCubeTimer/Info.plist;
+				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

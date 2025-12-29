@@ -18,13 +18,10 @@ struct ContentView: View {
     @State private var gestureJustStoppedTimer = false
     
     // Dummy Data for history
-    let lastSolves = [
-        (time: "12.45", diff: "+0.12", color: Color.red),
-        (time: "11.20", diff: "-1.23", color: Color.green),
-        (time: "13.01", diff: "+0.50", color: Color.orange),
-        (time: "10.99", diff: "-0.40", color: Color.green),
-        (time: "14.50", diff: "+2.05", color: Color.red)
-    ]
+
+    
+    
+    
     
     var body: some View {
         NavigationStack {
@@ -108,9 +105,9 @@ struct ContentView: View {
                             
                             // 1. Colorful Stats Pills
                             HStack(spacing: 15) {
-                                StatPill(label: "Ao5", value: "12.30", color: .cyan)
-                                StatPill(label: "Ao12", value: "12.55", color: .purple)
-                                StatPill(label: "Best", value: "9.80", color: .yellow)
+                                StatPill(label: "Ao5", value:  String(format: "%.2f", vm.dataSheet?.AO5 ?? 0) , color: .cyan)
+                                StatPill(label: "Ao12", value: String(format: "%.2f", vm.dataSheet?.AO12 ?? 0), color: .purple)
+                                StatPill(label: "Best", value:String(format: "%.2f", vm.dataSheet?.Best ?? 0), color: .yellow)
                             }
                             
                             Divider().overlay(.white.opacity(0.2))
@@ -126,8 +123,10 @@ struct ContentView: View {
                                         .foregroundColor(.gray)
                                 }
                                 
-                                ForEach(lastSolves.indices, id: \.self) { index in
-                                    let solve = lastSolves[index]
+              
+                          
+                                ForEach(vm.lastSolves.indices, id: \.self) { index in
+                                    let solve = vm.lastSolves[index]
                                     HStack {
                                         Text("#\(index + 1)")
                                             .font(.caption)
@@ -147,6 +146,8 @@ struct ContentView: View {
                                             .background(solve.color.opacity(0.2))
                                             .foregroundColor(solve.color)
                                             .cornerRadius(4)
+                                        
+                                        DeleteButtonView(index: index, vm : vm)
                                     }
                                 }
                             }
